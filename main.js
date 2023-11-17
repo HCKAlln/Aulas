@@ -7,7 +7,7 @@ const client = new sqlite3.Database("./data/database.sqlite")
 client.run('create table if not exists client (id integer primary key, name text)')
 
 app.get("/" ,(req,res)=>{
-    res.send(client.all('select * from users'))
+    client.all('select * from client', (error, rows) => { if (error) console.log(error); res.send(rows); })
 })
 
 app.get("/add", ()=>{
