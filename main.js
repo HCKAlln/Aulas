@@ -6,6 +6,10 @@ const client = new sqlite3.Database("./data/database.sqlite")
 
 client.run('create table if not exists client (id integer primary key, name text)')
 
+app.get("/" (res,res)=>{
+    res.send(client.all())
+})
+
 app.get("/add", ()=>{
     client.run('insert into client (name) values (?)', ['Alice'])
 })
