@@ -6,7 +6,7 @@ const client = new sqlite3.Database("./data/database.sqlite")
 
 client.run('create table if not exists client (id integer primary key, name text)')
 
-app.get("/" (res,res)=>{
+app.get("/" ,(req,res)=>{
     res.send(client.all())
 })
 
